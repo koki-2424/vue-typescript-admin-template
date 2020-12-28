@@ -17,7 +17,7 @@
         label="Role Key"
         width="220"
       >
-        <template slot-scope="{row}">
+        <template v-slot="{row}">
           {{ row.key }}
         </template>
       </el-table-column>
@@ -26,7 +26,7 @@
         label="Role Name"
         width="220"
       >
-        <template slot-scope="{row}">
+        <template v-slot="{row}">
           {{ row.name }}
         </template>
       </el-table-column>
@@ -34,7 +34,7 @@
         align="header-center"
         label="Description"
       >
-        <template slot-scope="{row}">
+        <template v-slot="{row}">
           {{ row.description }}
         </template>
       </el-table-column>
@@ -42,7 +42,7 @@
         align="center"
         label="Operations"
       >
-        <template slot-scope="scope">
+        <template v-slot="scope">
           <el-button
             type="primary"
             size="small"
@@ -251,6 +251,7 @@ export default class extends Vue {
     this.dialogType = 'edit'
     this.dialogVisible = true
     this.checkStrictly = true
+    console.log('role changed', scope.row)
     this.role = cloneDeep(scope.row)
     this.$nextTick(() => {
       const routes = this.flattenRoutes(this.reshapeRoutes(this.role.routes))
